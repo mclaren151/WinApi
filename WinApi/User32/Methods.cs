@@ -876,5 +876,115 @@ namespace WinApi.User32
         public static extern uint EnumClipboardFormats(uint format);
 
         #endregion
+
+        #region Menu Functions
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool AppendMenu(IntPtr hMenu, uint uFlags, uint uIDNewItem, string lpNewItem);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool AppendMenu(IntPtr hMenu, uint uFlags, IntPtr uIDNewItem, string lpNewItem);
+
+        [DllImport(LibraryName)]
+        public static extern uint CheckMenuItem(IntPtr hMenu, uint uIDCheckItem, uint uCheck);
+
+        [DllImport(LibraryName)]
+        public static extern bool CheckMenuRadioItem(IntPtr hMenu, uint first, uint last, uint check, uint flags);
+
+        [DllImport(LibraryName)]
+        public static extern IntPtr CreateMenu();
+
+        [DllImport(LibraryName)]
+        public static extern IntPtr CreatePopupMenu();
+
+        [DllImport(LibraryName)]
+        public static extern bool DeleteMenu(IntPtr hMenu, uint uPosition, uint uFlags);
+
+        [DllImport(LibraryName)]
+        public static extern bool DestroyMenu(IntPtr hMenu);
+
+        [DllImport(LibraryName)]
+        public static extern bool DrawMenuBar(IntPtr hWnd);
+
+        [DllImport(LibraryName)]
+        public static extern bool EnableMenuItem(IntPtr hMenu, uint uIDEnableItem, uint uEnable);
+
+        [DllImport(LibraryName)]
+        public static extern bool EndMenu();
+
+        [DllImport(LibraryName)]
+        public static extern bool GetMenuBarInfo(IntPtr hwnd, int idObject, int idItem, ref MenuBarInfo pmbi);
+
+        [DllImport(LibraryName)]
+
+        public static extern uint GetMenuDefaultItem(IntPtr hMenu, uint fByPos, uint gmdiFlags);
+
+        [DllImport(LibraryName)]
+        public static extern bool GetMenuInfo(IntPtr hMenu, ref MenuInfo lpmi);
+
+        [DllImport(LibraryName)]
+        public static extern int GetMenuItemCount(IntPtr hMenu);
+
+        [DllImport(LibraryName)]
+        public static extern uint GetMenuItemID(IntPtr hMenu, int nPos);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool GetMenuItemInfo(IntPtr hMenu, uint item, bool fByPosition, ref MenuItemInfo lpmii);
+
+        [DllImport(LibraryName)]
+        public static extern bool GetMenuItemRect(IntPtr hWnd, IntPtr hMenu, uint uItem, ref Rectangle lprcItem);
+
+        [DllImport(LibraryName)]
+        public static extern uint GetMenuState(IntPtr hMenu, uint uId, uint uFlags);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern int GetMenuString(IntPtr hMenu, uint uIDItem, [Out] StringBuilder lpString, int cchMax, uint uFlag);
+
+        [DllImport(LibraryName)]
+        public static extern IntPtr GetSubMenu(IntPtr hMenu, int nPos);
+
+        [DllImport(LibraryName)]
+        public static extern bool IsMenu(IntPtr hMenu);
+
+        [DllImport(LibraryName)]
+        public static extern bool HiliteMenuItem(IntPtr hWnd, IntPtr hMenu, uint uIDHiliteItem, uint uHilite);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool InsertMenu(IntPtr hMenu, uint uPosition, uint uFlags, ref uint uIDNewItem, string lpNewItem);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool InsertMenuItem(IntPtr hMenu, uint uItem, bool fByPosition, [In] ref MenuItemInfo lpmii);
+
+        [DllImport(LibraryName)]
+        public static extern int MenuItemFromPoint(IntPtr hWnd, IntPtr hMenu, [In] ref Point ptScreen);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool ModifyMenu(IntPtr hMenu, uint uPosition, uint uFlags, ref uint uIDNewItem, string lpNewItem);
+
+        [DllImport(LibraryName)]
+        public static extern bool RemoveMenu(IntPtr hMenu, uint uPosition, uint uFlags);
+
+        [DllImport(LibraryName)]
+        public static extern bool SetMenu(IntPtr hWnd, IntPtr hMenu);
+
+        [DllImport(LibraryName)]
+        public static extern bool SetMenuDefaultItem(IntPtr hMenu, uint uItem, uint fByPos);
+
+        [DllImport(LibraryName)]
+        public static extern bool SetMenuInfo(IntPtr hMenu, [In] ref MenuInfo lpmi);
+
+        [DllImport(LibraryName)]
+        public static extern bool SetMenuItemBitmaps(IntPtr hMenu, uint uPosition, uint uFlags, IntPtr hBitmapUnchecked, IntPtr hBitmapChecked);
+
+        [DllImport(LibraryName, CharSet = Properties.BuildCharSet)]
+        public static extern bool SetMenuItemInfo(IntPtr hMenu, uint item, bool fByPosition, [In] ref MenuItemInfo lpmii);
+
+        [DllImport(LibraryName)]
+        public static extern bool TrackPopupMenu(IntPtr hMenu, uint uFlags, int x, int y, int nReserved, IntPtr hWnd, [In] ref Rectangle prcRect);
+
+        [DllImport(LibraryName)]
+        public static extern bool TrackPopupMenuEx(IntPtr hMenu, uint uFlags, int x, int y, IntPtr hwnd, [In] ref TrackPopupMenuParams lptpm);
+
+        #endregion
     }
 }

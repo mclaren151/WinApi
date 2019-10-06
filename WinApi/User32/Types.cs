@@ -288,4 +288,50 @@ namespace WinApi.User32
         public ElementSystemStates HelpButtonStates;
         public ElementSystemStates CloseButtonStates;
     }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MenuInfo
+    {
+        public uint Size;
+        public uint Mask;
+        public uint Style;
+        public uint YMax;
+        public IntPtr BrBack;
+        public uint ContextHelpID;
+        public IntPtr MenuData;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MenuItemInfo
+    {
+        public int Size;
+        public uint Mask;
+        public uint Type;
+        public uint State;
+        public uint ID;
+        public IntPtr SubMenu;
+        public IntPtr BmpChecked;
+        public IntPtr BmpUnchecked;
+        public IntPtr ItemData;
+        public string TypeData;
+        public uint cch;        // length of TypeData
+        public IntPtr BmpItem;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MenuBarInfo 
+    {
+        public uint Size;       // 32 bytes total size
+        public Rectangle Bar;
+        public IntPtr Menu;
+        public IntPtr WndMenu;
+        public uint Focused;    // bitfields for fBarFocused && fFocused
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct TrackPopupMenuParams
+    {
+        public uint Size;
+        public Rectangle Exclude;
+    }
 }
